@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
-        <title>JSP Page</title>
+        <title>Log in</title>
     </head>
     <body>
 
@@ -28,7 +28,7 @@
                             <label>Usuario:</label>
                             <input type="password" name="txtpass" class="form-control">
                         </div>
-                        <input type="submit" name="accion" value="Ingresar" class="btn btn-primary btn-block">                        i"
+                        <input type="submit" name="accion" value="Ingresar" class="btn btn-primary btn-block">                     
                     </form>
                 </div>
             </div>

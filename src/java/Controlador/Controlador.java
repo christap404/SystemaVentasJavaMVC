@@ -6,9 +6,12 @@
 package Controlador;
 
 import Modelo.Empleado;
+import Modelo.Cliente;
+import Modelo.ClienteDAO;
 import Modelo.EmpleadoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.rmi.AccessException;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +26,8 @@ public class Controlador extends HttpServlet {
 
     Empleado em = new Empleado();
     EmpleadoDAO edao = new EmpleadoDAO();
+    Cliente cl = new Cliente();
+    ClienteDAO cldao = new ClienteDAO();
     int ide;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -52,9 +57,9 @@ public class Controlador extends HttpServlet {
                     request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     break;
                 case "Eliminar":
-                        ide = Integer.parseInt(request.getParameter("id"));
-                        edao.eliminar(ide);
-                        request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
+                    ide = Integer.parseInt(request.getParameter("id"));
+                    edao.eliminar(ide);
+                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     break;
                 case "Editar":
                     ide = Integer.parseInt(request.getParameter("id"));
@@ -94,28 +99,21 @@ public class Controlador extends HttpServlet {
             request.getRequestDispatcher("Producto.jsp").forward(request, response);
         }
         if (menu.equals("Venta")) {
+            switch (accion) {
+                case "BuscarCliente":
+                    String dni = request.getParameter("codigocliente");
+                    cl.setDni(dni);
+                    cl = cldao.buscar(dni);                  
+                    request.setAttribute("cl", cl);
+                    break;
+               default:
+                   throw new AssertionError();
+            }
             request.getRequestDispatcher("Venta.jsp").forward(request, response);
         }
-        /* switch (accion) {
-            case "Principal":
-                request.getRequestDispatcher("Principal.jsp").forward(request, response);
-                break;
-            case "Clientes":
-                request.getRequestDispatcher("Clientes.jsp").forward(request, response);
-                break;
-            case "Producto":
-                request.getRequestDispatcher("Producto.jsp").forward(request, response);
-                break;
-            case "Empleado":
-                request.getRequestDispatcher("Empleado.jsp").forward(request, response);
-                break;
-            case "Venta":
-                request.getRequestDispatcher("Venta.jsp").forward(request, response);
-                break;
-
-            default:
-                throw new AssertionError();
-        }*/
+        else{
+            request.getRequestDispatcher("Venta.jsp").forward(request, response);
+        }
 
     }
 
