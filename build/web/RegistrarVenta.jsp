@@ -15,19 +15,19 @@
         <div class="d-flex">
             <div class="col-lg-5">
                 <div class="card">
-                    <form action="Controlador?menu=Venta" method="POST">
+                    <form action="Controlador?menu=NuevaVenta" method="POST">
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Datos del Cliente</label>
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="codigocliente" class="form-control" placeholder="Codigo">
+                                    <input type="text" name="codigocliente" value="${cl.getDni()}"class="form-control" placeholder="Codigo">
                                     <input type="submit" name="accion" value="BuscarCliente" class="btn btn-outline-danger" style="margin-left: 3px">
                                 </div>
 
                                 <div class="col-sm-6">
-                                    <input type="text" name="nombrescliente" class="form-control col-sm-6" >
+                                    <input type="text" name="nombrescliente" value="${cl.getNombre()}"class="form-control col-sm-6" >
                                 </div>
 
                             </div>
@@ -41,7 +41,7 @@
                                 </div>
 
                                 <div class="col-sm-6">
-                                    <input type="text" name="nombrescliente" class="form-control col-sm-6" >
+                                    <input type="text" name="nombrepro" class="form-control col-sm-6" >
                                 </div>
                             </div>
                             <div class="form-group d-flex">

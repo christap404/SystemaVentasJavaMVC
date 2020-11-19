@@ -98,7 +98,7 @@ public class Controlador extends HttpServlet {
         if (menu.equals("Producto")) {
             request.getRequestDispatcher("Producto.jsp").forward(request, response);
         }
-        if (menu.equals("Venta")) {
+        if (menu.equals("NuevaVenta")) {
             switch (accion) {
                 case "BuscarCliente":
                     String dni = request.getParameter("codigocliente");
@@ -107,12 +107,11 @@ public class Controlador extends HttpServlet {
                     request.setAttribute("cl", cl);
                     break;
                default:
-                   throw new AssertionError();
+                   request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
+                  // throw new AssertionError();
             }
-            request.getRequestDispatcher("Venta.jsp").forward(request, response);
-        }
-        else{
-            request.getRequestDispatcher("Venta.jsp").forward(request, response);
+            request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
+            
         }
 
     }
