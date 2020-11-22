@@ -13,6 +13,32 @@
     </head>
     <body>
 
+
+        <nav class="nav nav-pills nav-justified" style="background-color: orange">
+            <button class="btn btn-primary" href="#"><b>Home</b></button>>
+            <button class="btn btn-primary" href="Controlador?menu=Producto" target="myFrame"><b>Producto</b></button>>
+            <a class="nav-item nav-link" style="background-color: blue" href="Controlador?menu=Empleado&accion=Listar" target="myFrame"t><b>Empleados</b></a>
+            <a class="nav-item nav-link" href="Controlador?menu=Clientes" target="myFrame"><b>Clientes</b></a>
+            <a class="nav-item nav-link" href="Controlador?menu=NuevaVenta&accion=default" target="myFrame"><b>Nueva venta</b></a>
+            
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Usuario ${usuario.getUser()}               
+                </button>
+                <div  class="dropdown-menu text-center">
+                    <a class="dropdown-item" href="#">${usuario.getNom()}</a>
+                    <img src="Img/kisspng-kitten-siamese-cat-tonkinese-cat-veterinarian-anim-gato-5b4e61bd0f77f7.4474705215318634850634.png" alt="" style="width: 100px; height: 100px">
+                    <a class="dropdown-item" href="#">Usuario@gmail.com</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <form action="Validar" method="POST">
+                        <button name="accion" value="salir" class="dropdown-item" href="#">Salir</button>
+                    </form>
+
+                </div>
+            </div>
+        </nav>
+        <%-- 
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <a class="navbar-brand" href="#">Navbar</a>
 
@@ -48,15 +74,17 @@
                     <form action="Validar" method="POST">
                         <button name="accion" value="salir" class="dropdown-item" href="#">Salir</button>
                     </form>
-   
+
                 </div>
             </div>
         </nav>
-                    <div class="m-4" style="height: 550px">
-                        <iframe name="myFrame" style="height: 100%; width: 100%; border: none">
-                            
-                        </iframe>
-                    </div>
+        --%>
+        
+        <div class="m-4" style="height: 550px">
+            <iframe name="myFrame" style="height: 100%; width: 100%; border: none">
+
+            </iframe>
+        </div>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
