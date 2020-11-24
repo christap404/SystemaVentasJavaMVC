@@ -95,12 +95,15 @@
                                 <c:forEach var="list" items="${lista}" >
                                     <tr>
                                         <td>${list.getItem()}</td>
-                                        <td>${list.getIdProducto()}</td>
+                                        <td>${list.getId()}</td>
                                         <td>${list.getDescripcionP()}</td>
                                         <td>${list.getPrecio()}</td>
                                         <td>${list.getCantidad()}</td>
-                                        <td>${list.Subtotal()}</td>
-                                        <td></td>
+                                        <td>${list.getSubtotal()}</td>
+                                        <td>
+                                            <a href="#" class="btn btn-danger"> Eliminar </a>
+                                            <a href="#" class="btn btn-warning"> Editar </a>
+                                        </td>
                                     </tr>
                                 </c:forEach>
 
@@ -108,12 +111,14 @@
                         </table>
 
                     </div>
-                    <div class="card-footer">
-                        <div>
+                    <div class="card-footer d-flex">
+                        <div class="col-sm-6">
                             <input type="submit" name="accion" value="Generar Venta" class="btn btn-success">
                             <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
                         </div>
-
+                        <div class="col-sm-3 ml-auto">
+                            <input type="text" name="txttotal" value="S/.${totalpagar}0" class="form-control">
+                        </div>
                     </div>
 
                 </div>
