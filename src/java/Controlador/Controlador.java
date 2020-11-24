@@ -5,6 +5,8 @@
  */
 package Controlador;
 
+import Modelo.Producto;
+import Modelo.ProductoDAO;
 import Modelo.Empleado;
 import Modelo.Cliente;
 import Modelo.ClienteDAO;
@@ -28,6 +30,8 @@ public class Controlador extends HttpServlet {
     EmpleadoDAO edao = new EmpleadoDAO();
     Cliente cl = new Cliente();
     ClienteDAO cldao = new ClienteDAO();
+    Producto pr = new Producto();
+    ProductoDAO prdao = new ProductoDAO();
     int ide;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -105,6 +109,11 @@ public class Controlador extends HttpServlet {
                     cl.setDni(dni);
                     cl = cldao.buscar(dni);                  
                     request.setAttribute("cl", cl);
+                    break;
+                case "BuscarProducto":
+                    int id = Integer.parseInt(request.getParameter("codigoproducto"));
+                    pr = prdao.listarId(id);
+                    request.setAttribute("producto", pr);
                     break;
                default:
                    request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);

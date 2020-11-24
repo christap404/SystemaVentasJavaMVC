@@ -15,8 +15,8 @@
 
 
         <nav class="nav nav-pills nav-justified" style="background-color: orange">
-            <button class="btn btn-primary" href="#"><b>Home</b></button>>
-            <button class="btn btn-primary" href="Controlador?menu=Producto" target="myFrame"><b>Producto</b></button>>
+            <a class="nav-item nav-link" href="#"><b>Home</b></a>
+            <a class="nav-item nav-link" href="Controlador?menu=Producto" target="myFrame"><b>Producto</b></a>>
             <a class="nav-item nav-link" style="background-color: blue" href="Controlador?menu=Empleado&accion=Listar" target="myFrame"t><b>Empleados</b></a>
             <a class="nav-item nav-link" href="Controlador?menu=Clientes" target="myFrame"><b>Clientes</b></a>
             <a class="nav-item nav-link" href="Controlador?menu=NuevaVenta&accion=default" target="myFrame"><b>Nueva venta</b></a>
